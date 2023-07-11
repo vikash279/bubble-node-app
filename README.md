@@ -1,2 +1,1 @@
-# bubble-node-app
-Bubble Node JS
+HTML And CSS setup with Node JS unsing EJS Engine
