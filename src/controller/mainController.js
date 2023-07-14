@@ -11,11 +11,35 @@ const reader = require('xlsx');
 const upload = multer({ dest: 'src/uploads/' });
 
 const index = async function (req, res){
-    res.render('index', { text: 'This is EJS'})
+    res.render('index', { text: 'Index'})
 }
 
-const about = async function (req, res){
-    res.render('about', { text: 'About Page'})
+const dashboard = async function (req, res){
+    res.render('dashboard', { text: 'Dashboard'})
+}
+
+const myAccount = async function (req, res){
+    res.render('myaccount', { text: 'My Account'})
+}
+
+const myCompany = async function (req, res){
+    res.render('mycompany', { text: 'My Company'})
+}
+
+const project = async function (req, res){
+    res.render('project', { text: 'Project'})
+}
+
+const team = async function (req, res){
+    res.render('team', { text: 'Team'})
+}
+
+const task = async function (req, res){
+    res.render('task', { text: 'Task'})
+}
+
+const subtask = async function (req, res){
+    res.render('subtask', { text: 'Subtask'})
 }
 
 const uploadExcel = async function (req, res){
@@ -43,4 +67,4 @@ const excelData = async function (req, res){
 }
 
 
-module.exports = { index, about, uploadExcel, excelData , upload}
+module.exports = { index, dashboard, myAccount, myCompany, project, team, task, subtask, uploadExcel, excelData , upload}

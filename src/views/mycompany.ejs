@@ -1,0 +1,113 @@
+<%- include('header') %>
+<body>
+  <%- include('sidebar') %>
+      <section class="home-section ">
+        <div class="home-content">
+          <i class='bx bx-menu'></i>
+          <span class="text"></span>
+        
+        </div>
+        <!-- page  -->
+        <section class="p-3">
+          <!-- heading -->
+          <div class="row">
+            <div class="col">
+                <h1 class="">My Company</h1>
+            </div>
+          </div>
+          
+<!-- end heading -->
+<!-- page content -->
+<section>
+    <div class="container">
+        <div class="row mt-5 p-3" style="background-color:white; border:1px solid white;border-radius:15px;">
+           <div class="col-3">
+          
+            <canvas id= "canv1" ></canvas>
+           <input type="file" multiple="false" accept="image/*" id=finput onchange="upload()">
+  </div>
+           <div class="col-9">
+            <div class="mb-3">
+                    
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Company Name">
+              </div>
+              <div class="mb-3">
+                    
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Address">
+              </div>
+            <div class="row" > 
+                <div class="col-6">
+                    <div class="mb-3">
+                    
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="City">
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3">
+                    
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Postal code">
+                      </div>
+                </div>
+            </div>
+            <div class="row" > 
+                <div class="col-6">
+                    <div class="mb-3">
+                    
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3">
+                    
+                        <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Ph no.">
+                      </div>
+                </div>
+            </div>
+           
+        </div>
+        
+    </div>
+</section>
+<!-- page content end -->
+</section>
+<!-- end page -->
+      </section>
+
+
+<!-- file upload script -->
+<script>
+    function upload(){
+  var imgcanvas = document.getElementById("canv1");
+  var fileinput = document.getElementById("finput");
+  var image = new SimpleImage(fileinput);
+  image.drawTo(imgcanvas);
+}
+</script>
+<!-- file upload script end -->
+      <!-- sidebar script -->
+      <script>
+        const arrows = document.querySelectorAll(".arrow");
+
+arrows.forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    const arrowParent = e.target.closest(".arrow").parentElement.parentElement;
+    arrowParent.classList.toggle("showMenu");
+  });
+});
+
+const sidebar = document.querySelector(".sidebar");
+const sidebarBtn = document.querySelector(".bx-menu");
+
+sidebarBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("close");
+});
+
+      </script>
+   
+      <!-- sidebar script end -->
+
+      <!-- b5 script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- b5 script end -->
+</body>
+</html>

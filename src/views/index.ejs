@@ -1,16 +1,626 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
-    <h1>HTML And CSS setup with Node JS unsing EJS Engine</h1>
-    <h2><%= text %></h2>
-    <a href="/about">About Page</a>
-    <a href="/upload-excel">Upload Excel</a>
-    <img src="/img/cat.jpg" alt="Cat">
-</body>
+<%- include('header') %>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/img/logo.png" class="" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+          <form class="d-flex">
+            <div class="tealbtn me-2">
+              <a
+                href=""
+                class="text-decoration-none"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal1"
+              >
+                <div class="text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-hand-thumbs-up"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"
+                    />
+                  </svg>
+                  &nbsp;Create Account
+                </div>
+              </a>
+            </div>
+            <div class="tealborderbtn me-2">
+              <a
+                href=""
+                class="text-decoration-none"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                <div class="text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-box-arrow-in-right"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+                    />
+                  </svg>
+                  &nbsp;Login
+                </div>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- end navbar -->
+    <!-- hero banner -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="hero-heading text-center">
+              Our features become your results
+            </div>
+            <div class="hero-text text-center">
+              Work Management helps your teams manage work, projects, and
+              processes, no matter the complexity.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end hero banner -->
+    <!-- section-2 -->
+    <section class="mt-3 section-2 p-5">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="section2-heading text-center">
+              Design, develop, and deploy powerful products.
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div
+            class="col-md-4 col-12 d-flex justify-content-center align-items-center"
+          >
+            <div class="card" style="width: 18rem">
+              <img
+                src="/img/1.svg"
+                class="card-img-top p-3"
+                style="height: 235px"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Project Management</h5>
+                <p class="card-text">
+                  Get started with our industry-leading work management
+                  functionality to help you plan, track, and manage your team’s
+                  work.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-4 col-12 d-flex justify-content-center align-items-center"
+          >
+            <div class="card" style="width: 18rem">
+              <img
+                src="/img/2.svg"
+                class="card-img-top p-3"
+                style="height: 235px"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Data & Reporting</h5>
+                <p class="card-text">
+                  View your work, and the results of your work, in the way that
+                  makes the most sense for you, your team, and stakeholders.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-4 col-12 d-flex justify-content-center align-items-center"
+          >
+            <div class="card" style="width: 18rem">
+              <img
+                src="/img/3.svg"
+                class="card-img-top p-3"
+                style="height: 235px"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Configuration</h5>
+                <p class="card-text">
+                  Work Management is the most configurable and customizable tool
+                  in the market with granular control over security, privacy,
+                  and workflows.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section2 end -->
+    <!-- section-3 -->
+    <section class="p-5">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-md-4 col-12">
+            <div class="mt-xl-5 mt-0" style="color: #03b4c6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="currentColor"
+                class="bi bi-funnel-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"
+                />
+              </svg>
+            </div>
+            <div class="section2-heading">Timeline View</div>
+            <div class="section3-text mt-3">
+              Map dependencies and plan work effectively with our take on the
+              classic Gantt chart. Available on both free and paid plans.
+            </div>
+          </div>
+          <div class="col-md-5 col-12">
+            <img src="/img/timeline.jpg" class="section3-img" />
+          </div>
+          <div class="col-1"></div>
+        </div>
+        <div class="row mt-5 mb-5">
+          <div class="col-2"></div>
+
+          <div class="col-md-5 col-12 mt-md-0 mt-5">
+            <img src="/img/work.png" class="section3-img" />
+          </div>
+          <div class="col-md-4 col-12">
+            <div class="mt-xl-5 mt-0" style="color: #03b4c6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="currentColor"
+                class="bi bi-pencil"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
+                />
+              </svg>
+            </div>
+            <div class="section2-heading">My Work</div>
+            <div class="section3-text mt-3">
+              Map dependencies and plan work effectively with our take on the
+              classic Gantt chart. Available on both free and paid plans.
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+    </section>
+    <!-- section-3 end -->
+    <!-- section4 -->
+    <section class="end-banner p-5">
+      <div class="container">
+        <div class="row ps-md-5 ps-0 pe-md-5 pe-0">
+          <div class="section2-heading text-center text-white mt-5">
+            Design, develop, and deploy powerful products.
+          </div>
+          <div class="col-md-4 col-12 p-lg-5 p-3">
+            <div class="mt-5" style="color: #03b4c6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="currentColor"
+                class="bi bi-list-task"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"
+                />
+                <path
+                  d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"
+                />
+              </svg>
+            </div>
+            <div class="end-heading text-white mt-2">My Work</div>
+            <div class="end-text text-white mt-3">
+              Map dependencies and plan work effectively with our take on the
+              classic Gantt chart. Available on both free and paid plans.
+            </div>
+          </div>
+          <div class="col-md-4 col-12 p-lg-5 p-3">
+            <div class="mt-5" style="color: #03b4c6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="currentColor"
+                class="bi bi-calendar2-event"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"
+                />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"
+                />
+                <path
+                  d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"
+                />
+              </svg>
+            </div>
+            <div class="end-heading text-white mt-2">Calendar View</div>
+            <div class="end-text text-white mt-3">
+              View and manage tasks across time and schedules to hit your
+              deadlines.
+            </div>
+          </div>
+          <div class="col-md-4 col-12 p-lg-5 p-3">
+            <div class="mt-5" style="color: #03b4c6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="currentColor"
+                class="bi bi-bar-chart-line"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"
+                />
+              </svg>
+            </div>
+            <div class="end-heading text-white mt-2">Board view</div>
+            <div class="end-text text-white mt-3">
+              Track work all the way to completion through your team’s custom
+              workflow.
+            </div>
+          </div>
+        </div>
+        <div class="row ps-md-5 pe-md-5 pe-0 ps-0">
+          <div class="col-md-4 col-12 p-lg-5 p-3">
+            <div class="mt-5" style="color: #03b4c6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="currentColor"
+                class="bi bi-file-earmark-text"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"
+                />
+                <path
+                  d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"
+                />
+              </svg>
+            </div>
+            <div class="end-heading text-white mt-2">Forms</div>
+            <div class="end-text text-white mt-3">
+              Easily submit and track simple work requests with our
+              drag-and-drop form builder.
+            </div>
+          </div>
+          <div class="col-md-4 col-12 p-lg-5 p-3">
+            <div class="mt-5" style="color: #03b4c6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="currentColor"
+                class="bi bi-card-list"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"
+                />
+                <path
+                  d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"
+                />
+              </svg>
+            </div>
+            <div class="end-heading text-white mt-2">Task dependencies</div>
+            <div class="end-text text-white mt-3">
+              Task dependencies make it clear which tasks are ready to start,
+              and which tasks are waiting to be done.
+            </div>
+          </div>
+          <div class="col-md-4 col-12 p-lg-5 p-3">
+            <div class="mt-5" style="color: #03b4c6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="currentColor"
+                class="bi bi-lock"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"
+                />
+              </svg>
+            </div>
+            <div class="end-heading text-white mt-2">Task-level security</div>
+            <div class="end-text text-white mt-3">
+              Keep your sensitive work safe and lock down tasks so only specific
+              users can see certain tasks and information.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section4 end -->
+    <!-- footer -->
+    <section>
+      <div class="container">
+        <div class="row p-5">
+          <div class="text-center">
+            <span class="me-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="#0a1e43"
+                class="bi bi-twitter"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+                /></svg
+            ></span>
+            <span class="me-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="#0a1e43"
+                class="bi bi-facebook"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
+                /></svg
+            ></span>
+            <span class="me-3"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="#0a1e43"
+                class="bi bi-instagram"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"
+                /></svg
+            ></span>
+            <span class="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="#0a1e43"
+                class="bi bi-linkedin"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+                /></svg
+            ></span>
+          </div>
+          <div class="text-center end-text mt-2">
+            All rights reserved @2023 by Filletglue.
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- footer end -->
+    <!-- modal box -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col">
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Password"
+                  />
+                </div>
+                <div class="row ms-1 me-1">
+                  <button
+                    type="button"
+                    class="btn text-white"
+                    style="background-color: #03b4c6; border-radius: 20px"
+                  >
+                    Login
+                  </button>
+                </div>
+                <div class="row justify-content-center mb-1 mb-1">OR</div>
+                <div class="row ms-1 me-1">
+                  <button
+                    type="button"
+                    class="btn"
+                    style="
+                      border-color: #03b4c6;
+                      border-radius: 20px;
+                      color: #03b4c6;
+                    "
+                  >
+                    Create an Account
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius:20px;">Cancel</button>
+          <button type="button" class="btn text-white" style="background-color: #03b4c6;border-radius:20px;">Invite</button>
+        </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- end modal box -->
+    <div
+      class="modal fade"
+      id="exampleModal1"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Signup</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Company"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Password"
+                  />
+                </div>
+                <div class="row ms-1 me-1">
+                  <button
+                    type="button"
+                    class="btn text-white"
+                    style="background-color: #03b4c6; border-radius: 20px"
+                  >
+                    Signup
+                  </button>
+                </div>
+                <div class="row justify-content-center mb-1 mb-1">OR</div>
+                <div class="row ms-1 me-1">
+                  <button
+                    type="button"
+                    class="btn"
+                    style="
+                      border-color: #03b4c6;
+                      border-radius: 20px;
+                      color: #03b4c6;
+                    "
+                  >
+                    Login
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius:20px;">Cancel</button>
+          <button type="button" class="btn text-white" style="background-color: #03b4c6;border-radius:20px;">Invite</button>
+        </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- end modal box -->
+    <!-- b5 script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- b5 script end -->
+  </body>
 </html>
