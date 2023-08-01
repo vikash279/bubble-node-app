@@ -1,22 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel Upload</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
+<%- include('header') %>
 <body>
-    <h1><%= text %></h1>
+  <%- include('sidebar') %>
+      <section class="home-section ">
+        <div class="home-content">
+          <i class='bx bx-menu'></i>
+          <span class="text"></span>
+        
+        </div>
+        <!-- page  -->
+        <section class="p-3">
+          <!-- heading -->
+          <div class="row">
+            <div class="col">
+                <h1 class="">Upload Excel</h1>
+            </div>
+          </div>
+          
+<!-- end heading -->
+<!-- page content -->
+<section>
     <div class="container">
-        <form action="/excel-data" enctype="multipart/form-data" method="post">
-          <input type="file" name="importexcel" class="form-control"/>
-          <br />
-          <br />
-          <button type="submit" class="btn btn-primary" value="Store File">Submit</button>
-        </form>
-      </div>
-      <br />
-    <a href="/">Index Page</a>
+        <div class="row mt-5 p-3" style="background-color:white; border:1px solid white;border-radius:15px;">
+           <div class="col-9">
+            <div class="row" > 
+                <div class="col-6">
+                  <form action="/excel-data" enctype="multipart/form-data" method="post">
+                    <input type="file" name="importexcel" class="form-control"/>
+                    <br />
+                    <br />
+                    <button type="submit" class="btn btn-primary" value="Store File">Submit</button>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- page content end -->
+</section>
+<!-- end page -->
+      </section>
+
+      <!-- b5 script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- b5 script end -->
 </body>
 </html>

@@ -19,6 +19,6 @@ route.post("/excel-data", mainController.upload.single('importexcel'), mainContr
 
 
 route.all("/*", function (req, res) {
-    res.status(400).send({status: false,message: "The api you request is not available"})
+    res.status(400).send({status: false,message: "The page you request is not available"})
 })
 module.exports = route;
